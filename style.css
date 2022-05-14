@@ -5,7 +5,7 @@
 :root
 {
     --black-main: rgb(0, 0, 0);
-    --red-accents: rgb(128, 9, 9);
+    --red-accents: rgb(122, 39, 39);
     --white-functional: rgb(226, 226, 226);
 }
 
@@ -17,7 +17,7 @@
 html
 {
     /*-- Scroll lock -- */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 body
@@ -25,7 +25,7 @@ body
     margin: 0;
     padding: 0;
     background: rgb(0,0,0);
-    background: linear-gradient(150deg, var(--black-main) 0%, var(--black-main) 80%, var(--red-accents) 100%);
+    background: linear-gradient(150deg, var(--black-main) 0%, var(--black-main) 70%, var(--red-accents) 100%);
 }
 
 .container
@@ -204,6 +204,21 @@ body
     z-index: 2;
 }
 
+.explanationBG
+{
+  position: absolute;
+  min-height: 390vh;
+  min-width: 90vw;
+  background-color: transparent;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  border-radius: 6px;
+  border: solid 3px var(--red-accents);
+  /* background-image: url('videos/firework1.mp4'); */
+  box-shadow: 0px 0px 300px var(--red-accents);
+}
+
 .explanationHeader
 {
   vertical-align: middle;
@@ -241,20 +256,21 @@ body
 {
   float: left;
   margin-left: 10%;
-
+  box-shadow: 100px 0px 400px rgba(112, 10, 10, 0.432);
 }
 
 #explanationRight
 {
   float: right;
   margin-right: 10%;
+  box-shadow: -100px 0px 400px rgba(126, 126, 126, 0.473);
 }
 
 .explanationFeatures
 {
-  font-size: 6rem;
+  font-size: 5rem;
   max-width: 50vw;
-  min-width: 30vw;
+  min-width: 20vw;
   text-align: center;
   margin-top: 3%;
   background-color: var(--red-accents);
@@ -264,6 +280,23 @@ body
   font-family: 'Oleo Script Swash Caps', cursive;
   overflow: hidden;
   text-shadow: 2px 2px 3px var(--black-main);
+}
+
+.explanationFeatureDesc
+{
+  font-size: 2.5rem;
+  max-width: 20vw;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 10%;
+  background-color: var(--white-functional);
+  color: var(--black-main);
+  padding: 5%;
+  position: relative;
+  clear: both;
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  text-shadow: 2px 2px 3px var(--red-accents);
 }
 
 @media screen and (max-width: 800px) {
@@ -291,21 +324,4 @@ body
   {
     font-size: 1rem;
   }
-}
-
-.explanationFeatureDesc
-{
-  font-size: 3rem;
-  max-width: 20vw;
-  text-align: center;
-  margin-top: 2%;
-  margin-bottom: 15%;
-  background-color: var(--white-functional);
-  color: var(--black-main);
-  padding: 5%;
-  position: relative;
-  clear: both;
-  font-family: 'Quicksand', sans-serif;
-  overflow: hidden;
-  text-shadow: 2px 2px 3px var(--red-accents);
 }
