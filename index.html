@@ -1,44 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thmay</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <video id="introductionVideo" class="introductionVideo" autoplay muted>
-        <source src="videos/firework1.mp4" id="mp4Source" type="video/mp4">
-        Your browser does not support the video tag. KURWA!!!
-    </video>
-    
-    <script type='text/javascript'>
-       let count = 1;
-       let player = document.getElementById('introductionVideo');
-       let mp4Vid = document.getElementById('mp4Source');
-       player.addEventListener('ended', myHandler, false);
-    
-       function myHandler(listener)
-       {
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thmay</title>
+        <link rel="stylesheet" href="./style.css">
+
+        <script>
+        window.location.replace("#");
+
+        if (typeof window.history.replaceState == 'function') {
+            history.replaceState({}, '', window.location.href.slice(0, -1));
+        }
+
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        window.scrollTo(0);
+    </script>
+    </head>
+    <body>
+        <div class="container">
+
+            <h1 class="introductionHeader">
+                Happy Birthday [imie redacted]!
+            </h1>
+
+            <p class="introductionText">
+                Wishing you all the best!<br>
+                Scroll down...
+            </p>
+
+            <div class="scrollArrow">
+                <!-- Arrows -->
+                <a href="#explanation">
+                    <span></span><span></span><span></span>
+                </a>
+            </div>
+
+            <video id="introductionVideo" class="introductionVideo" autoplay
+                muted>
+                <source src="videos/firework1.mp4" id="mp4Source"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <script type='text/javascript'>
+        let count = 0;
+        let videoNumber = 1;
+        let player = document.getElementById('introductionVideo');
+        let mp4Vid = document.getElementById('mp4Source');
+        player.addEventListener('ended', myHandler, false);
+        
+        function myHandler(listener)
+        {
             if(!listener) 
             {
                 listener = window.event;
             }
-
-            count++;
-
-            if(count > 2)
+            
+            ++videoNumber;
+            ++count;
+            
+            if(videoNumber > 2)
             {
-                count = 2;
+                videoNumber = 2;
             }
-
-            mp4Vid.setAttribute('src', "videos/firework" + count + ".mp4");
-
+            
+            mp4Vid.setAttribute('src', "videos/firework" + videoNumber + ".mp4");
+            
             player.load();
             player.play();
-       }
-    
-    </script>
-</body>
+            
+            if(count == 2)
+            {
+                let html = document.querySelector('html');
+                html.style.overflow = 'visible';
+                
+                let video = document.getElementById('introductionVideo');
+                video.style.filter = 'blur(20px) brightness(50%)';
+                video.style.maxWidth = '99vw';
+                video.style.zIndex = '0';
+                
+                delete count;
+            }
+        }
+        </script>
+            <div class="explanation" id="explanation">
+                Hey there
+                z-index: 2;
+                z-index: 2;
+                z-index: 2;
+                z-index: 2;
+
+            </div>
+        </div>
+
+    </body>
 </html>
