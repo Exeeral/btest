@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Thmay</title>
         <link rel="stylesheet" href="./style.css">
-
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
         <script>
             window.location.replace("#");
 
@@ -20,7 +20,6 @@
 
             window.scrollTo(0);
         </script>
-
     </head>
     <body>
         <div class="container">
@@ -47,57 +46,118 @@
                 Your browser does not support the video tag.
             </video>
 
-        <script type='text/javascript'>
-        let count = 0;
-        let videoNumber = 1;
-        let player = document.getElementById('introductionVideo');
-        let mp4Vid = document.getElementById('mp4Source');
-        player.addEventListener('ended', myHandler, false);
-        
-        function myHandler(listener)
-        {
-            if(!listener) 
+            <script type='text/javascript'>
+            let count = 0;
+            let videoNumber = 1;
+            let player = document.getElementById('introductionVideo');
+            let mp4Vid = document.getElementById('mp4Source');
+            player.addEventListener('ended', myHandler, false);
+            
+            function myHandler(listener)
             {
-                listener = window.event;
-            }
-            
-            ++videoNumber;
-            ++count;
-            
-            if(videoNumber > 2)
-            {
-                videoNumber = 2;
-            }
-            
-            mp4Vid.setAttribute('src', "videos/firework" + videoNumber + ".mp4");
-            
-            player.load();
-            player.play();
-            
-            if(count == 2)
-            {
-                let html = document.querySelector('html');
-                html.style.overflow = 'visible';
+                if(!listener) 
+                {
+                    listener = window.event;
+                }
                 
-                let video = document.getElementById('introductionVideo');
-                video.style.filter = 'blur(20px) brightness(50%)';
-                video.style.maxWidth = '99vw';
-                video.style.zIndex = '0';
+                ++videoNumber;
+                ++count;
                 
-                delete count;
+                if(videoNumber > 2)
+                {
+                    videoNumber = 2;
+                }
+                
+                mp4Vid.setAttribute('src', "videos/firework" + videoNumber + ".mp4");
+                
+                player.load();
+                player.play();
+                
+                if(count == 2)
+                {
+                    let html = document.querySelector('html');
+                    html.style.overflow = 'visible';
+                    
+                    let video = document.getElementById('introductionVideo');
+                    video.style.filter = 'blur(20px) brightness(50%)';
+                    // video.style.maxWidth = '99vw';
+                    // video.style.zIndex = '0';
+                    
+                    delete count;
+                }
             }
-        }
-        </script>
-
+            </script>
             <div class="explanation" id="explanation">
-                Hey there
-                z-index: 2;
-                z-index: 2;
-                z-index: 2;
-                z-index: 2;
+                <div class="explanationHeader">
+                    After another year, it's finally the day!
+                </div>
+
+                <div class="explanationText">
+                    This is a bithday gift website designed by Exeeral for [name
+                    redacted]. All rights reserved!
+                    For this occassion, I prepared multiple things either hidden
+                    or displayed in front of you
+                    on this website.<br><br>
+
+                    You will find:
+                </div>
+
+                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                <script>
+                    AOS.init
+                    (
+                        {
+                            offset: 100,
+                            delay: 130,
+                            duration: 300,
+                            once: false,
+                            anchorPlacement: 'top-bottom'
+                        }
+                    );
+                </script>
+
+                <div data-aos="fade-up" id="explanationLeft" class="explanationFeatures">
+                    Wishes
+                </div>
+
+                <span data-aos="fade-up" id="explanationRight"class="explanationFeatureDesc">
+                    All the things I'd like to wish you for your birthday and
+                    days to come.
+                    This will be our first stop on this website.
+                </span>
+
+                <div data-aos="fade-up-right" id="explanationRight" class="explanationFeatures">
+                    Easter eggs
+                </div>
+
+                <span data-aos="fade-up" id="explanationLeft" class="explanationFeatureDesc">
+                    There will be buttons, links and other thingies which take
+                    you to hidden content.
+                    Each page has at least one of those.
+                </span>
+
+                <div data-aos="fade-up-left" id="explanationLeft" class="explanationFeatures">
+                    Memories
+                </div>
+
+                <span data-aos="fade-up" id="explanationRight" class="explanationFeatureDesc">
+                    Some old stuff. Not "That" old stuff, though. So, nothing to
+                    be scared of.
+                </span>
+
+                <div data-aos="fade-up-right" id="explanationRight" class="explanationFeatures">
+                    What's to come
+                </div>
+
+                <span data-aos="fade-up" id="explanationLeft" class="explanationFeatureDesc">
+                    Things that didn't happen yet, but maybe will in the future.
+                </span>
+            </div>
+
+            <div class="start">
 
             </div>
-        
+
         </div>
 
     </body>

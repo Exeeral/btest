@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
 
 :root
 {
     --black-main: rgb(0, 0, 0);
-    --red-accents: rgb(173, 45, 45);
+    --red-accents: rgb(128, 9, 9);
     --white-functional: rgb(226, 226, 226);
 }
 
@@ -15,14 +17,15 @@
 html
 {
     /*-- Scroll lock -- */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
-body, html
+body
 {
     margin: 0;
     padding: 0;
-    background-color: var(--black-main);
+    background: rgb(0,0,0);
+    background: linear-gradient(150deg, var(--black-main) 0%, var(--black-main) 80%, var(--red-accents) 100%);
 }
 
 .container
@@ -39,15 +42,13 @@ body, html
 {
     max-width: 99vw;
     min-height: 100vh;
-    width: auto;
-    height: auto;
 
     z-index: 0;
 }
 
 .introductionHeader
 {
-    font-size: 5em;
+    font-size: 5rem;
     font-family: 'Oleo Script Swash Caps', cursive;
     user-select: none;
     color: var(--white-functional);
@@ -58,6 +59,8 @@ body, html
     left: 50%;
     top: 20%;
     transform: translate(-50%, -50%);
+    max-width: 80vw;
+    min-width: 30vw;
 
     -webkit-text-stroke: 2px var(--red-accents);
     text-stroke: 2px var(--red-accents);
@@ -68,7 +71,7 @@ body, html
 
 .introductionText
 {
-    font-size: 3em;
+    font-size: 3rem;
     font-family: 'Quicksand', sans-serif;
     color: var(--white-functional);
     text-align: center;
@@ -80,8 +83,10 @@ body, html
     left: 50%;
     top: 60%;
     transform: translate(-50%, -50%);
+    max-width: 80vw;
+    min-width: 30vw;
 
-    animation: textAppear 20s ease-in-out;
+    animation: textAppear 20s ease-out;
 }
 
 .scrollArrow
@@ -102,11 +107,11 @@ body, html
     position: absolute;
     top: 73%;
     left: 50%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-left: -12px;
     border-left: 1px solid var(--white-functional);
-    border-bottom: 1px solid var(--white-functional);
+    border-bottom: 1px dashed var(--white-functional);
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     -webkit-animation: scrollAnim 2s infinite;
@@ -132,8 +137,8 @@ body, html
   .scrollArrow a span:nth-of-type(3) 
   {
     top: 75%;
-    -webkit-animation-delay: .3s;
-    animation-delay: .3s;
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
   }
 
   @-webkit-keyframes scrollAnim 
@@ -158,6 +163,7 @@ body, html
   {
     0% 
     {
+
       opacity: 0;
     }
 
@@ -193,10 +199,113 @@ body, html
 
 .explanation
 {
-    max-width: 10vw;
-    height: 100vh;
+    min-width: 100%;
     color: white;
     z-index: 2;
-    display: block;
-    position: absolute;
+}
+
+.explanationHeader
+{
+  vertical-align: middle;
+  max-width: 80vw;
+  margin: 0 auto;
+  padding: 1%;
+  text-align: center;
+  font-family: 'Monoton', cursive;
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+  color: var(--red-accents);
+  /* background-color: var(--red-accents); */
+  text-shadow: 1px 1px 1px var(--white-functional),
+               5px 5px 2px var(--red-accents),
+               0px 20px 95px var(--white-functional);
+}
+
+.explanationText
+{
+  font-family: 'Qucksand', cursive;
+  font-size: 1.8rem;
+  color: var(--white-functional);
+  text-shadow: 2px 2px 10px var(--red-accents);
+  max-width: 80vw;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding-top: 3%;
+  padding-bottom: 30%;
+  border-top: 3px dashed var(--red-accents);
+}
+
+#explanationLeft
+{
+  float: left;
+  margin-left: 10%;
+
+}
+
+#explanationRight
+{
+  float: right;
+  margin-right: 10%;
+}
+
+.explanationFeatures
+{
+  font-size: 6rem;
+  max-width: 50vw;
+  min-width: 30vw;
+  text-align: center;
+  margin-top: 3%;
+  background-color: var(--red-accents);
+  padding: 5%;
+  position: relative;
+  clear: both;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  overflow: hidden;
+  text-shadow: 2px 2px 3px var(--black-main);
+}
+
+@media screen and (max-width: 800px) {
+  .explanationHeader, .explanationFeatures
+  {
+    font-size: 2rem;
+  }
+
+  .introductionHeader
+  {
+    font-size: 2rem;
+  }
+
+  .introductionText
+  {
+    font-size: 1rem;
+  }
+
+  .explanationFeatureDesc
+  {
+    font-size: 1rem !important;
+  }
+
+  .explanationText
+  {
+    font-size: 1rem;
+  }
+}
+
+.explanationFeatureDesc
+{
+  font-size: 3rem;
+  max-width: 20vw;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 15%;
+  background-color: var(--white-functional);
+  color: var(--black-main);
+  padding: 5%;
+  position: relative;
+  clear: both;
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  text-shadow: 2px 2px 3px var(--red-accents);
 }
