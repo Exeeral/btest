@@ -291,10 +291,13 @@ body
   font-family: 'Oleo Script Swash Caps', cursive;
   overflow: hidden;
   text-shadow: 2px 2px 3px var(--black-main);
+  border-radius: 35px;
+
 }
 
 .explanationFeatureDesc
 {
+  border-radius: 35px;
   font-size: 2.5rem;
   max-width: 20vw;
   text-align: center;
