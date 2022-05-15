@@ -24,8 +24,8 @@ body
 {
     margin: 0;
     padding: 0;
-    background: rgb(0,0,0);
-    background: linear-gradient(150deg, var(--black-main) 0%, var(--black-main) 70%, var(--red-accents) 100%);
+    background: var(--black-main);
+    background: linear-gradient(180deg, var(--black-main) 0%, var(--black-main) 80%, var(--red-accents) 100%);
 }
 
 .container
@@ -207,16 +207,27 @@ body
 .explanationBG
 {
   position: absolute;
-  min-height: 390vh;
-  min-width: 90vw;
+  min-height: 300vh;
+  max-width: 99vw;
   background-color: transparent;
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
-  border-radius: 6px;
-  border: solid 3px var(--red-accents);
-  /* background-image: url('videos/firework1.mp4'); */
-  box-shadow: 0px 0px 300px var(--red-accents);
+}
+
+.explanationBGVideo
+{
+  /* position: absolute;  */
+  right: 0; 
+  bottom: 0;
+  min-width: 90vw;
+  opacity: 1;
+  filter: contrast(120%);
+  min-height: 100vh;
+  z-index: -100;
+  background-size: cover;
+  overflow: hidden;
+  /* border: 3px solid var(--red-accents); */
 }
 
 .explanationHeader
