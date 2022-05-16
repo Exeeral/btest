@@ -18,7 +18,7 @@
 html
 {
     /*-- Scroll lock -- */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 body
