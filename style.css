@@ -380,7 +380,8 @@ body
   box-shadow: 50px 0px 200px var(--red-accents);
 }
 
-@media screen and (max-width: 931px) {
+@media screen and (max-width: 931px) 
+{
   .explanationHeader, .explanationFeatures
   {
     font-size: 2rem;
@@ -409,5 +410,13 @@ body
   .start
   {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px)
+{
+  .shadow
+  {
+   display: none; 
   }
 }
