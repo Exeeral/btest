@@ -7,6 +7,7 @@
     --black-main: rgb(0, 0, 0);
     --red-accents: rgb(122, 39, 39);
     --white-functional: rgb(226, 226, 226);
+    --red-toned: rgb(75, 22, 22);
 }
 
 *
@@ -17,7 +18,7 @@
 html
 {
     /*-- Scroll lock -- */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body
@@ -25,7 +26,7 @@ body
     margin: 0;
     padding: 0;
     background: var(--black-main);
-    background: linear-gradient(180deg, var(--black-main) 0%, var(--black-main) 80%, var(--red-accents) 100%);
+    background: linear-gradient(180deg, var(--black-main) 0%, var(--black-main) 95%, var(--red-accents) 100%);
 }
 
 .container
@@ -207,8 +208,8 @@ body
 .explanationBG
 {
   position: absolute;
-  min-height: 300vh;
-  max-width: 99vw;
+  width: fit-content;
+  height: fit-content;
   background-color: transparent;
   left: 50%;
   transform: translateX(-50%);
@@ -217,17 +218,25 @@ body
 
 .explanationBGVideo
 {
-  /* position: absolute;  */
-  right: 0; 
-  bottom: 0;
-  min-width: 90vw;
+  max-width: 98vw;
+  min-height: 250vh;
   opacity: 1;
   filter: contrast(120%);
-  min-height: 100vh;
-  z-index: -100;
+  z-index: -1;
   background-size: cover;
   overflow: hidden;
-  /* border: 3px solid var(--red-accents); */
+}
+
+.explanationBG .shadow {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0px 0px 200px 170px var(--black-main);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: transparent;
 }
 
 .explanationHeader
@@ -313,7 +322,65 @@ body
   text-shadow: 2px 2px 3px var(--red-accents);
 }
 
-@media screen and (max-width: 800px) {
+.start
+{
+  border-top: 10px dashed var(--black-main);
+  overflow: hidden;
+  min-width: 99vw;
+  min-height: 50vh;
+  font-size: 4em;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--white-functional);
+  text-shadow: 0px 0px 20px var(--white-functional);
+  text-align: center;
+  align-content: center;
+}
+
+.start .startButton
+{
+  background-color: var(--black-main);
+  color: rgb(255, 255, 255);
+  padding: 2% 4%;
+  position: relative;
+  margin: 0 auto;
+  width: 30%;
+  top: 50px;
+  display: block;
+  transition: all 0.5s;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.start .startButton::before
+{
+  z-index: -1;
+  width: calc(100% - 10px);
+  height: 80%;
+  content: '';
+  position: absolute;
+  top: 40%;
+  left: 0.1%;
+  /* border: 5px solid var(--red-accents); */
+  background-color: var(--white-functional);
+  transition: all 0.2s;
+  border-radius: 15px;
+}
+
+.start .startButton:hover
+{
+  cursor: pointer;
+  /* border: 4px solid var(--black-main); */
+  background-color: var(--red-accents);
+}
+
+.start .startButton:hover::before{
+  top: 35%;
+  left: -5%;
+  background-color: var(--red-toned);
+  box-shadow: 50px 0px 200px var(--red-accents);
+}
+
+@media screen and (max-width: 931px) {
   .explanationHeader, .explanationFeatures
   {
     font-size: 2rem;
@@ -337,5 +404,10 @@ body
   .explanationText
   {
     font-size: 1rem;
+  }
+
+  .start
+  {
+    font-size: 2rem;
   }
 }
